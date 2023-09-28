@@ -92,6 +92,7 @@ class LinkedList {
       return this
    }
 
+   // shift
    shift() {
       if (!this.head) return undefined
       let temp = this.head
@@ -104,14 +105,34 @@ class LinkedList {
       return temp
    }
 
+   // get
+   get(index) {
+      if (index < 0 || index >= this.length) return undefined
+      let temp = this.head
+      for (let i = 0; i < index; i++) {
+         temp = temp.next
+      }
+      return temp
+   }
+
+   // set
+   set(index, value) {
+      let temp = this.get(index)
+      if (temp) {
+         temp.value = value
+         return true
+      }
+      return false
+   }
+
    // insert 
    insert(index, value) { }
 }
 
-let myLinkedList = new LinkedList(1)
-myLinkedList.push(2)
-myLinkedList.push(3)
-// myLinkedList.push(4)
+let myLinkedList = new LinkedList(5)
+myLinkedList.push(6)
+myLinkedList.push(7)
+myLinkedList.push(8)
 // myLinkedList.push(5)
 
 // myLinkedList.pop()
