@@ -126,14 +126,27 @@ class LinkedList {
    }
 
    // insert 
-   insert(index, value) { }
+   insert(index, value) {
+      if (index === 0) return this.unshift(value)
+      if (index === this.length) return this.push(value)
+      if (index < 0 || index > this.length) return false
+
+      const newNode = new Node(value)
+      const temp = this.get(index - 1)
+
+      newNode.next = temp.next
+      temp.next = newNode
+      this.length++
+      return true
+   }
 }
 
-let myLinkedList = new LinkedList(5)
-myLinkedList.push(6)
-myLinkedList.push(7)
-myLinkedList.push(8)
-// myLinkedList.push(5)
+let myLinkedList = new LinkedList(10)
+myLinkedList.push(11)
+myLinkedList.push(12)
+myLinkedList.push(13)
+// insert
+myLinkedList.insert(4, 14)
 
 // myLinkedList.pop()
 // myLinkedList.pop()
