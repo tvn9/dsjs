@@ -20,7 +20,6 @@ class LinkedList {
    // push (O1)
    push(value) {
       const newNode = new Node(value)
-      newNode.value = value
       if (!this.head) {
          this.head = newNode
          this.tail = newNode
@@ -153,6 +152,24 @@ class LinkedList {
       temp.next = null
       this.length--
       return temp
+   }
+
+   // reverse
+   reverse() {
+      let temp = this.head
+      this.head = this.tail
+      this.tail = temp
+
+      let next = temp.next
+      let prev = null
+
+      for (let i = 0; i < this.length; i++) {
+         next = temp.next
+         temp.next = prev
+         prev = temp
+         temp = next
+      }
+      return this
    }
 }
 
