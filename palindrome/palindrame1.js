@@ -34,9 +34,13 @@ const palindrome1 = (str) => {
    return str === newStr
 }
 
-const
+function palindrome2(str) {
+   return str.split('').every((char, i) => {
+      return char === str[str.length - 1 - i]
+   })
+}
 
-   console.log('str1,', palindrome(str1))
+console.log('str1,', palindrome(str1))
 console.log('str2,', palindrome(str2))
 console.log('str3,', palindrome(str3))
 console.log('str4,', palindrome(str4))
@@ -45,3 +49,8 @@ console.log('str1,', palindrome1(str1))
 console.log('str2,', palindrome1(str2))
 console.log('str3,', palindrome1(str3))
 console.log('str4,', palindrome1(str4))
+
+console.log('str1,', palindrome2(str1))
+console.log('str2,', palindrome2(str2))
+console.log('str3,', palindrome2(str3))
+console.log('str4,', palindrome2(str4))
