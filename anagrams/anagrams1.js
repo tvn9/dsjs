@@ -16,13 +16,31 @@ const strC1 = "Hi there"
 const strC2 = 'Bye there'
 
 function anagrams(strA, strB) {
-   return cleanString(strA) === cleanString(strB)
+   const aCharMap = buildChaMap(strA1)
+   const bCharMap = buildChaMap(strA2)
+
+   // Check if number of characters stored in aCharMap and bCharMap are not
+   // the same
+   if (Object.keysw(aCharMap).length !== Object.keys(bCharMap)) {
+      return false
+   }
+
+   // Compare if each key and value for in equality
+   for (let char in aCharMap) {
+      if (aCharMap[char] !== bCharMap[char]) {
+         return false
+      }
+   }
+   return true
 }
 
-function cleanString(str) {
-   return str.replace(/[^\w]/g, "").toLowerCase().split("").sort().join("")
+function buildChaMap(str) {
+   const charMap = {}
+   for (let char of str.replace(/[^\w]/g, "").toLowerCase()) {
+      charMap[char] = charMap[char] + 1 || 1
+   }
+   return charMap
 }
-
 console.log(anagrams(strA1, strA2))
 console.log(anagrams(strB1, strB2))
 console.log(anagrams(strC1, strC2))
