@@ -16,12 +16,12 @@ const strC1 = "Hi there"
 const strC2 = 'Bye there'
 
 function anagrams(strA, strB) {
-   const aCharMap = buildChaMap(strA1)
-   const bCharMap = buildChaMap(strA2)
+   const aCharMap = buildChaMap(strA)
+   const bCharMap = buildChaMap(strB)
 
    // Check if number of characters stored in aCharMap and bCharMap are not
    // the same
-   if (Object.keysw(aCharMap).length !== Object.keys(bCharMap)) {
+   if (Object.keys(aCharMap).length !== Object.keys(bCharMap).length) {
       return false
    }
 
@@ -41,6 +41,7 @@ function buildChaMap(str) {
    }
    return charMap
 }
+
 console.log(anagrams(strA1, strA2))
 console.log(anagrams(strB1, strB2))
 console.log(anagrams(strC1, strC2))
